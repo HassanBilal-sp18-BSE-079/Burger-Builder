@@ -1,0 +1,13 @@
+.navitems {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  list-style: none;
+  margin-left: auto;
+}
+
+@media (min-width: 500px) {
+  .navitems {
+    flex-direction: row;
+  }
+}

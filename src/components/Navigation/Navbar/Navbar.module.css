@@ -1,0 +1,30 @@
+.navbar {
+  height: 56px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: rgb(124, 67, 14);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 90;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 3px black;
+}
+
+.navlinks {
+  padding: 30px;
+}
+
+@media (max-width: 499px) {
+  .DesktopOnly {
+    display: none;
+  }
+}
+
+@media (min-width: 499px) {
+  .menu {
+    display: none;
+  }
+}
