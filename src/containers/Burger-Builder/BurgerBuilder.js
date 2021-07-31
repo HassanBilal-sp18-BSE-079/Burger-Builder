@@ -24,14 +24,14 @@ const BurgerBuilder = (props) => {
     let [totalPrice, setTotalPrice] = useState(50);
     let [purchaseable, setPurchaseable] = useState(false);
     let [purchasing , setPurchasing] = useState(false);
-    let [LoadingSpinner,setLoadingSpinner]= useState(false);
+    //let [LoadingSpinner,setLoadingSpinner]= useState(false);
     let [error,setError]= useState(false);
 
 
 
 //fetching ingredients from firebase
     useEffect(()=>{
-        axios.get('https://burger-builder-5edb1-default-rtdb.asia-southeast1.firebasedatabase.app/ingredients.json')
+        axios.get('ingredients.json')
         .then(res=>{
             setIngredients(res.data);
         }).catch(err=>{
@@ -186,9 +186,9 @@ const BurgerBuilder = (props) => {
 
     //applying conditing to show spinner while http POST req is sent
    
-     if(LoadingSpinner){
-         orderSummary= <Spinner/>;
-     }
+    //  if(LoadingSpinner){
+    //      orderSummary= <Spinner/>;
+    //  }
 
 
 
