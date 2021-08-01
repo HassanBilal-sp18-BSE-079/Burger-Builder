@@ -109,7 +109,7 @@ const BurgerBuilder = (props) => {
 
     let continuePurchaseHandler = ()=>{
 
-        let queryString = new URLSearchParams(ingredients);
+        let queryString = new URLSearchParams({...ingredients,price:totalPrice});
 
         //console.log(queryString.toString());
 

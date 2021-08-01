@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Route } from 'react-router-dom';
 import CheckOutSummary from '../../components/CheckOutSummary/CheckOutSummary';
 import Spinner from '../../components/LoadingSpinner/LoadingSpinner';
+import ContactForm from './ContactForm/ContactForm';
 
 
 
@@ -8,18 +10,23 @@ import Spinner from '../../components/LoadingSpinner/LoadingSpinner';
 const CheckOut = (props) => {
 
     let [ingredients,setIngredients]=useState(null);
-
-    console.log(props);
+    let [price,setPrice]=useState(null);
 
     useEffect(()=>{
         let params  = new URLSearchParams(props.location.search);
         let ingredients = {};
 
         for (let [key,value] of params){
-            ingredients[key] = +value;
+            if(key === 'price'){
+                setPrice(+value);
+            }
+            else{
+                ingredients[key] = +value;
+            }
+            
         }
         setIngredients(ingredients);
-    },[props.location.search]);
+    },[]);
 
    
 
@@ -30,6 +37,7 @@ const CheckOut = (props) => {
 
     const checkOutContinueHandler =()=>{
         props.history.replace('/checkout/form');
+
     }
 
 
@@ -43,12 +51,14 @@ const CheckOut = (props) => {
     }
 
 
-    console.log(ingredients);
-
-
     return (  
         <div>
             {checkoutSummary}
+            <Route path='/checkout/form' render={()=>{
+                return(
+                    <ContactForm ingredients={ingredients} price={price} {...props} />
+                )
+            }} />
         </div>
     );
 }
