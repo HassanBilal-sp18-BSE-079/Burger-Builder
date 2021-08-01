@@ -7,8 +7,8 @@ import Navitem from './Navitem/Navitem';
 const Navitems = (props) => {
     return ( 
         <ul className={classes.navitems}>
-            <Navitem link='/' active >Burger Builder</Navitem>
-            <Navitem link='/'>My Orders</Navitem>
+            <Navitem link='/' exact >Burger Builder</Navitem>
+            <Navitem link='/orders'>My Orders</Navitem>
         </ul>
      );
 }
