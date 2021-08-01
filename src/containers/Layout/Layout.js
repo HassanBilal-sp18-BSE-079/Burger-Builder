@@ -18,7 +18,6 @@ const Layout = (props) => {
 
   let SideDrawerTogglehandler = ()=>{
     setShowSideddrawer(!showSideddrawer);
-    console.log('menu button');
   }
 
 
